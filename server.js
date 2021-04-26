@@ -4,7 +4,7 @@ const morgan = require("morgan")
 const path = require("path")
 const mongoose = require("mongoose")
 const bodyParser = require("body-parser")
-const PORT = process.env.PORT || 3000
+const PORT = 3000
 const apiRoutes = require("./routes/api-routes")
 const mainRoutes = require("./routes/mainRoutes")
 const mainControllers = require("./controllers/mainControllers")
@@ -49,7 +49,9 @@ db.once("open", () => {
 })
 
 app.listen( PORT, () => {
-  console.log(`Server Started At http://127.0.0.1:${PORT}`)
+  return(
+    console.log(`Server Started At http://127.0.0.1:${PORT}`)
+  )
 })
 
 module.exports = app

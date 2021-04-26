@@ -22,12 +22,14 @@ const setPricingData = async () => {
     const pricingData = new Pricing()
     await pricingData.save((err, results) => {
       if(err) console.log(err.message)
-      console.log(results)
       db.close()
+      return results
     })
   }catch(err){
-    console.log(err.message)
+    throw Error(err.message)
   }
 }
 
 setPricingData()
+
+module.exports = setPricingData
