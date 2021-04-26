@@ -1,0 +1,49 @@
+extends layouts
+
+block content
+  section(class="wrapper")
+    div(class="welcome") Hello! #{clientInfo.fullname}
+    div(class="flex-row")
+      div(class="vertical-nav")
+      ul
+        li
+          a(href=`/${clientInfo.userID}/dashboard`) Dashboard
+        li
+          a(href=`/${clientInfo.userID}/fuelQuote`) Fuel Quote
+        li
+          a(href="#home") Fuel Quote History
+        li
+          a(href="/login") Logout
+      div(class="content-wrapper")
+        h3(class="title") Fuel Quote Form
+        div(class="form fuelQuote")
+          form(action="/api/user/fuelQuote" method="POST")
+            div(class="form-group-row")
+              div(class="form-group")
+                label(for="gallons") Gallons
+                input(type="number" name="gallons" placeholder="Gallons Requested" required min="1" id="gallons")
+              div(class="form-group")
+                label(for="fuelType") Fuel Type
+                select(id="fuelType" name="fuelType" onChange="setPriceFuelType()")
+                  option(value="kerosene") Kerosene
+                  option(value="diesel") Diesel
+                  option(value="gasoline") Gasoline
+                  option(value="propane") Propane
+            div(class="form-group-row")
+              div(class="form-group")
+                label(for="state") State
+                input(type="text" name="state" value=`${clientInfo.state}` class="disable")
+              div(class="form-group")
+                label(for="deliveryAddress") Delivery Address
+                input(type="text" name="deliveryAddress" value=`${clientInfo.address}` class="disable")
+            div(class="form-group")
+              label(for="deliveryDate") Delivery Date
+              input(type="date" name="deliveryDate")
+            div(class="form-group-row")
+              div(class="form-group")
+                label(for="price") Price
+                input(type="text" name="price" id="price" onChange="setTotalPrice()" class="disable")
+              div(class="form-group")
+                label(for="totalAmount") Total Amount
+                input(type="text" name="totalAmount" id="totalAmount" class="disable")
+            button(class="btn btn-save" type="submit") MAKE FUEL QUOTE

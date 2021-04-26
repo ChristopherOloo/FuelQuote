@@ -1,0 +1,25 @@
+extends layouts
+
+block content
+  div(class="container client")
+    h3(class="title") Client Profile
+    div(class="form")
+      form(action="/api/user/register" method="POST")
+        div(class="form-group-row")
+          div(class="form-group")
+            label(for="fullname") Fullname
+            input(type="text" name="fullname" placeholder="Fullname" required)
+          div(class="form-group")
+            label(for="phone_number") Phone Number
+            input(type="text" name="phone_number" placeholder="Phone Number" required)
+        div(class="form-group-row")
+          div(class="form-group")
+            label(for="location") Location
+            input(type="text" name="location" placeholder="Location" required)
+          div(class="form-group")
+            label(for="address") Address
+            input(type="text" name="address" placeholder="Phone Number" required)
+        div(class="form-group")
+          label(for="state") State
+          input(type="text" name="state" placeholder="state" required)
+        button(class="btn btn-save" type="submit") SAVE DATA

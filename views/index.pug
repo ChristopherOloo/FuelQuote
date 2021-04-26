@@ -1,0 +1,21 @@
+extends layouts
+
+block content
+  div(class="container")
+    h3(class="title") Welcome Back
+    div(class="form")
+      if error
+        div(class="error")
+          span= error.message
+          a(class="close" onClick="closeBtn()") X
+      form(action="/api/user/login" method="POST")
+        div(class="form-group")
+          label(for="userID") USER ID
+          input(type="text" name="userID" placeholder="Enter Your ID" required)
+        div(class="form-group")
+          label(for="password") PASSWORD
+          input(type="password" name="password" placeholder="Enter Your Password" required)
+        button(type="submit" class="btn btn-login") LOGIN
+      p(class="credentials-info")
+        span Don't Have An Account?
+        a(href="/register") Register.

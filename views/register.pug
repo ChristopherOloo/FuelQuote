@@ -1,0 +1,24 @@
+extends layouts
+
+block content
+  div(class="container")
+    h3(class="title") New Client
+    div(class="form")
+      if error
+        div(class="error")
+          span= error.message
+          a(class="close" onclick="closeBtn") X
+      form(action="/register" method="POST")
+        div(class="form-group")
+          label(for="username") Username
+          input(type="text" name="username" placeholder="Username" id="username" required)
+        div(class="form-group")
+          label(for="userID") USER ID
+          input(type="text" name="userID" placeholder="ID" id="userID" required)
+        div(class="form-group")
+          label(for="password") PASSWORD
+          input(type="password" name="password" placeholder="Password" id="password" required)
+        button(type="submit" class="btn btn-login") CREATE ACCOUNT
+      p(class="credentials-info")
+        span Already Have An Account?
+        a(href="/") Login.

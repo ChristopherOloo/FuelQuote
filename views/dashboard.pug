@@ -1,0 +1,22 @@
+extends layouts
+
+block content
+  section(class="wrapper")
+    div(class="welcome") Hello! #{clientInfo.fullname}
+    div(class="flex-row")
+      div(class="vertical-nav")
+      ul
+        li
+          a(href=`/${clientInfo.userID}/dashboard`) Dashboard
+        li
+          a(href=`/${clientInfo.userID}/fuelQuote`) Fuel Quote
+        li
+          a(href="#home") Fuel Quote History
+        li
+          a(href="/login") Logout
+      div(class="content-wrapper")
+        div(class="flex-row")
+          a(href=`/${clientInfo.userID}/fuelQuote`)
+            div(class="makeFuelDiv") Make Fuel Quote
+          a(href="#")
+            div(class="makeFuelDiv") View Full Quote History
